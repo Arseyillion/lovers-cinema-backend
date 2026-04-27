@@ -1,7 +1,11 @@
 {
   "name": "backend",
-  "module": "server.js",
+  "main": "server.js",
   "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "bun server.js"
+  },
   "devDependencies": {
     "@types/bun": "latest"
   },
