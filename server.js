@@ -97,8 +97,16 @@ io.on("connection", (socket) => {
   });
 });
 
-const PORT = process.env.PORT || 3002;
+// Production-ready port configuration
+const PORT = process.env.PORT || 10000;
 
-httpServer.listen(PORT, () => {
-  console.log(`Socket server running on port ${PORT}`);
+// Bind to all network interfaces for deployment
+const HOST = '0.0.0.0';
+
+console.log(`Starting server on ${HOST}:${PORT}`);
+console.log(`Environment PORT: ${process.env.PORT || 'undefined (using default)'}`);
+
+httpServer.listen(PORT, HOST, () => {
+  console.log(`✅ Socket server successfully running on ${HOST}:${PORT}`);
+  console.log(`🌐 Ready for WebSocket connections`);
 });
